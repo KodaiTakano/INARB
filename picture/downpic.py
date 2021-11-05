@@ -10,7 +10,7 @@ options = Options()
 options.add_argument("--headless")
 
 #)の位置を変えて、optionsを適用すると非表示のまま処理される
-driver = webdriver.Chrome("Users/Kodai/code/chromedriver.exe")#,options=options)
+driver = webdriver.Chrome("/usr/local/bin/chromedriver",options=options)
 driver.set_window_size(1500,1500)
 
 #Google HPにアクセスする
