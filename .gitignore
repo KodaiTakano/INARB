@@ -1,2 +1,2 @@
-svm/*.xml
+data/train_data/*
 picture/*
