@@ -33,7 +33,9 @@ LOAD_TEST_WALK_IMG_PATH = './picture/test/walk/*'
 LOAD_TEST_CAR_IMG_PATH = './picture/test/car/*'
 
 # 作成した学習モデルの保存先
-SAVE_TRAINED_DATA_PATH = './train_data/svm_trained_data1.xml'
+SAVE_TRAINED_DATA_PATH = './data/train_data/svm_trained_data1.xml'
+# スコアの保存先
+SAVE_SCORE_DATA_PATH = './data/score_data/score.txt'
 
 load_walk_img_paths = glob.glob(LOAD_TEST_WALK_IMG_PATH)
 load_car_img_paths = glob.glob(LOAD_TEST_CAR_IMG_PATH)
@@ -47,12 +49,19 @@ walk_labels = np.zeros(len(load_walk_img_paths), np.int32)
 car_labels = np.ones(len(load_car_img_paths), np.int32)
 test_labels = np.array([np.r_[walk_labels, car_labels]])
 
-# loading
 svm = cv2.ml.SVM_load(SAVE_TRAINED_DATA_PATH)
 predicted = svm.predict(test_imgs)
 
-# test
+# 予想データの転置
+predicted = predicted[1].T
+
+# 点数表示
+score = np.sum(test_labels == predicted)/len(test_labels[0])
 print("test labels:", test_labels)
-print("predicted:", predicted[1].T)
-score = np.sum(test_labels == predicted[1].T)/len(test_labels[0])
+print("predicted:", predicted)
 print("Score:", score)
+with open(SAVE_SCORE_DATA_PATH, 'a') as f: 
+    f.write('変更点:       \n'
+            'test labels:'+str(test_labels)+'\n'+
+            'predited:'+str(predicted)+'\n'+
+            'Score:'+str(score)+'\n')
