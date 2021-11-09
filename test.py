@@ -33,7 +33,7 @@ LOAD_TEST_WALK_IMG_PATH = './picture/test/walk/*'
 LOAD_TEST_CAR_IMG_PATH = './picture/test/car/*'
 
 # 作成した学習モデルの保存先
-SAVE_TRAINED_DATA_PATH = './data/train_data/svm_trained_data1.xml'
+SAVE_TRAINED_DATA_PATH = './data/train_data/svm_trained_data2.xml'
 # スコアの保存先
 SAVE_SCORE_DATA_PATH = './data/score_data/score.txt'
 
@@ -62,6 +62,7 @@ print("predicted:", predicted)
 print("Score:", score)
 with open(SAVE_SCORE_DATA_PATH, 'a') as f: 
     f.write('変更点:       \n'
+            'used trained_data:'+str(SAVE_TRAINED_DATA_PATH)+'\n'+
             'test labels:'+str(test_labels)+'\n'+
             'predited:'+str(predicted)+'\n'+
             'Score:'+str(score)+'\n')
