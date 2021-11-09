@@ -1,5 +1,8 @@
-class machinelearning:
-    def create_images_array(load_img_paths):
+import cv2
+import numpy as np
+
+class MLclass:
+    def create_images_array(self,load_img_paths):
         imgs = []
         # 画像群の配列を生成
         for load_img_path in load_img_paths:
