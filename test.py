@@ -56,13 +56,14 @@ predicted = svm.predict(test_imgs)
 predicted = predicted[1].T
 
 # 点数表示
-score = np.sum(test_labels == predicted)/len(test_labels[0])
+score = np.sum(test_labels == predicted)/len(test_labels[0])*100
 print("test labels:", test_labels)
 print("predicted:", predicted)
-print("Score:", score)
+print("Score:", score,"/100")
 with open(SAVE_SCORE_DATA_PATH, 'a') as f: 
     f.write('変更点:       \n'
             'used trained_data:'+str(SAVE_TRAINED_DATA_PATH)+'\n'+
             'test labels:'+str(test_labels)+'\n'+
             'predited:'+str(predicted)+'\n'+
             'Score:'+str(score)+'\n')
+    
