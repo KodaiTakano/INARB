@@ -8,7 +8,7 @@ class mlclass:
         # 画像群の配列を生成
         for load_img_path in load_img_paths:
             # 画像をロード, グレースケール変換
-            # 色反転, 64*64にリサイズ, 1次元配列に変換
+            # 色反転, リサイズ, 1次元配列に変換
             img = cv2.imread(load_img_path)
             if not img is None:
                 # img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -39,7 +39,7 @@ class mlclass:
         # SVMで学習モデルの作成（カーネル:, gamma:1, C:1)
         svm = cv2.ml.SVM_create()
         svm.setType(cv2.ml.SVM_C_SVC)
-        svm.setKernel(cv2.ml.SVM_RBF)
+        svm.setKernel(cv2.ml.SVM_LINEAR)
         svm.setGamma(10)
         svm.setC(1)
         svm.setTermCriteria((cv2.TERM_CRITERIA_COUNT, 100, 1.e-06))

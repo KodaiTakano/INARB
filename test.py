@@ -10,7 +10,7 @@ LOAD_TEST_WALK_IMG_PATH = './picture/test/walk/*'
 LOAD_TEST_CAR_IMG_PATH = './picture/test/car/*'
 
 # 作成した学習モデルの保存先
-LOAD_TRAINED_DATA_PATH = './data/train_data/svm_trained_data3.xml'
+LOAD_TRAINED_DATA_PATH = './data/train_data/svm_trained_data4.xml'
 # スコアの保存先
 SAVE_SCORE_DATA_PATH = './data/score_data/score.txt'
 

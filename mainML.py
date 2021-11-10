@@ -10,7 +10,7 @@ LOAD_TRAIN_WALK_IMG_PATH = './picture/train/walk/*'
 LOAD_TRAIN_CAR_IMG_PATH = './picture/train/car/*'
 
 # 作成する学習モデルの保存先
-SAVE_TRAINED_DATA_PATH = './data/train_data/svm_trained_data3.xml'
+SAVE_TRAINED_DATA_PATH = './data/train_data/svm_trained_data4.xml'
 
 load_walk_img_paths = glob.glob(LOAD_TRAIN_WALK_IMG_PATH)
 load_car_img_paths = glob.glob(LOAD_TRAIN_CAR_IMG_PATH)
@@ -18,6 +18,7 @@ load_car_img_paths = glob.glob(LOAD_TRAIN_CAR_IMG_PATH)
 
 # 訓練データ画像の配列化
 train_imgs = mlc.create_union_images_array(load_walk_img_paths,load_car_img_paths)
+print("train_imgs array is created.")
 # walk_imgs = mlc.create_images_array(load_walk_img_paths)
 # car_imgs = mlc.create_images_array(load_car_img_paths)
 # # print(walk_imgs.shape)
