@@ -1,3 +1,4 @@
 data/train_data/*
 picture/*
 __pycache__
+chromedriver
